@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SunHopeLiving - 专业外贸家具制造商</title>
+    <!-- 引入 Tailwind CSS 用于快速响应式布局和样式 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 FontAwesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 配置 Tailwind 主题颜色 - 更改为高端家具风格的木色系 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3E2723', // 深棕色/胡桃木色，沉稳高端
+                        secondary: '#D4A373', // 温暖的原木/沙色，用作点缀和按钮
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 平滑滚动效果 */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* 简单的淡入动画类 */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-orange-50/30 antialiased">
+
+    <!-- 顶部信息栏 (Top Bar) -->
+    <div class="bg-primary text-white text-sm py-2 hidden md:block">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex space-x-6">
+                <span><i class="fa-solid fa-envelope mr-2"></i> sales@sunhopeliving.com</span>
+                <span><i class="fa-solid fa-phone mr-2"></i> +86 123 4567 8900</span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-secondary transition"><i class="fa-brands fa-pinterest"></i></a>
+                <a href="#" class="hover:text-secondary transition"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-secondary transition"><i class="fa-brands fa-linkedin"></i></a>
+                <!-- 语言切换 -->
+                <div class="ml-4 border-l border-white/30 pl-4 cursor-pointer hover:text-secondary transition">
+                    <i class="fa-solid fa-globe mr-1"></i> English / 中文
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主导航栏 (Navbar) -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold text-primary flex items-center">
+                <i class="fa-solid fa-couch mr-2 text-secondary"></i> SunHopeLiving
+            </a>
+
+            <!-- 桌面端菜单 -->
+            <div class="hidden md:flex space-x-8 items-center font-medium">
+                <a href="#home" class="text-primary hover:text-secondary transition">首页</a>
+                <a href="#products" class="text-gray-600 hover:text-secondary transition">家具系列</a>
+                <a href="#services" class="text-gray-600 hover:text-secondary transition">OEM/ODM</a>
+                <a href="#about" class="text-gray-600 hover:text-secondary transition">工厂展厅</a>
+                <a href="#contact" class="text-gray-600 hover:text-secondary transition">联系我们</a>
+            </div>
+
+            <!-- 行动呼吁按钮 (CTA) -->
+            <div class="hidden md:block">
+                <a href="#contact" class="bg-secondary text-white px-6 py-2 rounded-full font-bold hover:bg-yellow-600 transition shadow-lg hover:shadow-xl">
+                    获取产品画册
+                </a>
+            </div>
+
+            <!-- 移动端菜单按钮 -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600 text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- 移动端下拉菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="flex flex-col px-4 py-2 space-y-3">
+                <a href="#home" class="text-gray-800 font-medium py-2 border-b">首页</a>
+                <a href="#products" class="text-gray-600 py-2 border-b">家具系列</a>
+                <a href="#services" class="text-gray-600 py-2 border-b">OEM/ODM</a>
+                <a href="#about" class="text-gray-600 py-2 border-b">工厂展厅</a>
+                <a href="#contact" class="text-gray-600 py-2 border-b">联系我们</a>
+                <a href="#contact" class="bg-secondary text-white text-center px-4 py-2 rounded font-bold w-full mt-2">获取产品画册</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首屏横幅 (Hero Section) -->
+    <header id="home" class="relative bg-gray-900 h-[600px] flex items-center justify-center">
+        <!-- 背景图片 (使用高端客厅/家具场景) -->
+        <div class="absolute inset-0 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1920&q=80" alt="高端家具展厅" class="w-full h-full object-cover opacity-50">
+        </div>
+        
+        <!-- 核心文案 -->
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                打造触手可及的全球品质家居
+            </h1>
+            <p class="text-lg md:text-xl text-gray-100 mb-10 drop-shadow-md">
+                15年专注高端民用及商用家具 OEM/ODM。甄选全球环保材质，将卓越设计与精湛工艺送达全球买家。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#products" class="bg-secondary text-white px-8 py-3 rounded-md font-bold text-lg hover:bg-yellow-600 transition shadow-lg">
+                    探索热销系列
+                </a>
+                <a href="#contact" class="bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-md font-bold text-lg hover:bg-white hover:text-primary transition border border-white">
+                    联系销售经理
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 核心优势 (Why Choose Us) -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">为什么选择 SunHopeLiving 家具？</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 优势卡片 1 -->
+                <div class="text-center p-6 border border-gray-100 rounded-lg hover:shadow-xl transition bg-gray-50 group">
+                    <div class="w-16 h-16 bg-orange-100 text-secondary group-hover:bg-secondary group-hover:text-white transition rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-primary">专业设计与开模</h3>
+                    <p class="text-gray-600">自有设计团队支持从概念草图到 3D 渲染及打样，完美还原您的定制需求。</p>
+                </div>
+                <!-- 优势卡片 2 -->
+                <div class="text-center p-6 border border-gray-100 rounded-lg hover:shadow-xl transition bg-gray-50 group">
+                    <div class="w-16 h-16 bg-orange-100 text-secondary group-hover:bg-secondary group-hover:text-white transition rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-primary">严选环保材质</h3>
+                    <p class="text-gray-600">采用 FSC 认证进口实木、高密度海绵及无毒水性漆，符合欧洲 E1 级环保标准。</p>
+                </div>
+                <!-- 优势卡片 3 -->
+                <div class="text-center p-6 border border-gray-100 rounded-lg hover:shadow-xl transition bg-gray-50 group">
+                    <div class="w-16 h-16 bg-orange-100 text-secondary group-hover:bg-secondary group-hover:text-white transition rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-dolly"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-primary">高效产能保障</h3>
+                    <p class="text-gray-600">20,000平米现代化标准厂房，德国进口数控开料机，月产能高达 150 个高柜 (40HQ)。</p>
+                </div>
+                <!-- 优势卡片 4 -->
+                <div class="text-center p-6 border border-gray-100 rounded-lg hover:shadow-xl transition bg-gray-50 group">
+                    <div class="w-16 h-16 bg-orange-100 text-secondary group-hover:bg-secondary group-hover:text-white transition rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-primary">防损邮购包装</h3>
+                    <p class="text-gray-600">针对跨境电商提供加厚珍珠棉+硬纸箱的 ISTA 标准邮购包装，确保长途海运无损。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 热门产品展示 (Featured Products) -->
+    <section id="products" class="py-16 bg-[#faf8f5]">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-primary mb-4">当季热销系列</h2>
+                    <div class="w-24 h-1 bg-secondary"></div>
+                </div>
+                <a href="#" class="hidden md:block text-secondary font-medium hover:text-primary transition">下载完整产品图册 &rarr;</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 产品卡片 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:-translate-y-2 hover:shadow-xl transition duration-300 group border border-gray-100">
+                    <div class="relative overflow-hidden h-72">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80" alt="现代简约真皮沙发" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <!-- 悬浮询盘按钮 -->
+                        <div class="absolute inset-0 bg-primary/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 backdrop-blur-sm">
+                            <button class="bg-white text-primary px-6 py-2 rounded-full font-bold shadow-lg hover:bg-secondary hover:text-white transition">获取批发报价</button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-secondary font-semibold mb-1">客厅系列 (Living Room)</div>
+                        <h3 class="text-xl font-bold text-primary mb-2">米兰之光 - 意式极简真皮沙发</h3>
+                        <p class="text-gray-500 text-sm mb-4">顶级头层牛皮，俄罗斯落叶松全实木框架，高回弹记忆海绵填充，模块化设计。</p>
+                        <div class="flex justify-between items-center text-sm pt-4 border-t border-gray-100">
+                            <span class="text-gray-600">可选颜色: <span class="inline-block w-3 h-3 rounded-full bg-orange-900 ml-1"></span><span class="inline-block w-3 h-3 rounded-full bg-gray-300 ml-1"></span><span class="inline-block w-3 h-3 rounded-full bg-stone-800 ml-1"></span></span>
+                            <span class="font-bold text-primary bg-orange-50 px-2 py-1 rounded">MOQ: 10 套</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 产品卡片 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:-translate-y-2 hover:shadow-xl transition duration-300 group border border-gray-100">
+                    <div class="relative overflow-hidden h-72">
+                        <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=600&q=80" alt="北欧实木餐桌" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-primary/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 backdrop-blur-sm">
+                            <button class="bg-white text-primary px-6 py-2 rounded-full font-bold shadow-lg hover:bg-secondary hover:text-white transition">获取批发报价</button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-secondary font-semibold mb-1">餐厅系列 (Dining Room)</div>
+                        <h3 class="text-xl font-bold text-primary mb-2">奥斯陆 - 北美白橡木餐桌椅组合</h3>
+                        <p class="text-gray-500 text-sm mb-4">100% FAS级北美白橡木制造，传统榫卯工艺，哑光环保木蜡油涂层，温润防水。</p>
+                        <div class="flex justify-between items-center text-sm pt-4 border-t border-gray-100">
+                            <span class="text-gray-600">材质: 北美橡木 / 胡桃木</span>
+                            <span class="font-bold text-primary bg-orange-50 px-2 py-1 rounded">MOQ: 20 套</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 产品卡片 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:-translate-y-2 hover:shadow-xl transition duration-300 group border border-gray-100">
+                    <div class="relative overflow-hidden h-72">
+                        <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=600&q=80" alt="户外藤编休闲椅" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-primary/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 backdrop-blur-sm">
+                            <button class="bg-white text-primary px-6 py-2 rounded-full font-bold shadow-lg hover:bg-secondary hover:text-white transition">获取批发报价</button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-secondary font-semibold mb-1">户外系列 (Outdoor)</div>
+                        <h3 class="text-xl font-bold text-primary mb-2">巴厘岛度假风 - 编织休闲椅</h3>
+                        <p class="text-gray-500 text-sm mb-4">全天候 PE 藤手工编织，防锈铝合金烤漆框架，配以防水抗紫外线户外专用座垫。</p>
+                        <div class="flex justify-between items-center text-sm pt-4 border-t border-gray-100">
+                            <span class="text-gray-600">场景: 庭院 / 阳台 / 酒店</span>
+                            <span class="font-bold text-primary bg-orange-50 px-2 py-1 rounded">MOQ: 50 件</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                <a href="#" class="inline-block border-2 border-secondary text-secondary px-6 py-2 rounded font-bold">查看所有分类</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于工厂/实力展示 (Factory Tour & Craftsmanship) -->
+    <section id="about" class="py-16 bg-white overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- 左侧：工厂/工艺图片 -->
+                <div class="lg:w-1/2 relative">
+                    <div class="absolute -top-6 -left-6 w-32 h-32 border-4 border-secondary/30 rounded-lg z-0"></div>
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-orange-50 rounded-lg z-0"></div>
+                    <img src="https://images.unsplash.com/photo-1601599561096-f87c95fff1e9?auto=format&fit=crop&w=800&q=80" alt="手工木作工艺" class="relative z-10 rounded-lg shadow-xl w-full object-cover h-[500px]">
+                    
+                    <!-- 浮动数据徽章 -->
+                    <div class="absolute bottom-10 -right-4 bg-white p-5 rounded-lg shadow-2xl z-20 flex items-center gap-4 border-b-4 border-secondary">
+                        <div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold"><i class="fa-solid fa-award"></i></div>
+                        <div>
+                            <div class="text-gray-900 font-bold text-xl">100%</div>
+                            <div class="text-sm text-gray-500">出厂质检合格率</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧：实力介绍 -->
+                <div class="lg:w-1/2">
+                    <h4 class="text-secondary font-bold tracking-wider uppercase mb-2">关于 SunHopeLiving</h4>
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">源自中国的匠心制造，赋能全球家具品牌</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        SunHopeLiving 坐落于中国著名的家具制造之都。自 2008 年成立以来，我们从一个传统的手工木作坊，发展成为占地超 20,000 平方米的现代化大型家具生产基地。
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        厂内拥有 500 多名经验丰富的熟练木工和软体沙发技师。我们不仅为海外家具批发商、零售商提供极具价格竞争力的成品货源，更是多家国际知名连锁酒店及精装公寓的指定工程家具供应商。
+                    </p>
+                    
+                    <!-- 资质与工艺列表 -->
+                    <div class="grid grid-cols-2 gap-y-4 gap-x-2 mb-8">
+                        <div class="flex items-center text-gray-800 font-medium">
+                            <i class="fa-solid fa-check text-secondary mr-3 text-lg"></i> ISO 9001 质量认证
+                        </div>
+                        <div class="flex items-center text-gray-800 font-medium">
+                            <i class="fa-solid fa-check text-secondary mr-3 text-lg"></i> FSC 森林认证木材
+                        </div>
+                        <div class="flex items-center text-gray-800 font-medium">
+                            <i class="fa-solid fa-check text-secondary mr-3 text-lg"></i> SGS 结构耐用度测试
+                        </div>
+                        <div class="flex items-center text-gray-800 font-medium">
+                            <i class="fa-solid fa-check text-secondary mr-3 text-lg"></i> 灵活的拼柜服务(Mix Container)
+                        </div>
+                    </div>
+
+                    <a href="#" class="inline-flex items-center bg-primary text-white px-6 py-3 rounded hover:bg-stone-800 transition shadow-md">
+                        预约线上视频验厂 (Video Tour) <i class="fa-solid fa-video ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系与询盘表单 (Contact & Inquiry) -->
+    <section id="contact" class="py-20 bg-primary text-white relative">
+        <!-- 装饰性背景纹理 -->
+        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'#ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-20">
+                <!-- 左侧联系信息 -->
+                <div class="lg:w-5/12">
+                    <h2 class="text-3xl font-bold mb-4 text-white">正在寻找稳定的家具供应商？</h2>
+                    <p class="text-orange-100 mb-10 opacity-90 leading-relaxed">
+                        留下您的采购需求，我们的海外业务专家将为您匹配最新产品画册，并在 12 小时内为您提供包含阶梯价格和海运运费的详细报价单 (Proforma Invoice)。
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-secondary/20 border border-secondary/50 text-secondary rounded-full flex items-center justify-center mr-5 shrink-0">
+                                <i class="fa-solid fa-location-dot text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-lg">工厂地址 (Factory Location)</h4>
+                                <p class="text-orange-100/70 text-sm">中国·广东省佛山市顺德区家具制造工业园 8 号</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-secondary/20 border border-secondary/50 text-secondary rounded-full flex items-center justify-center mr-5 shrink-0">
+                                <i class="fa-solid fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-lg">询盘邮箱 (Email)</h4>
+                                <p class="text-orange-100/70 text-sm">inquiry@sunhopeliving.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-secondary/20 border border-secondary/50 text-secondary rounded-full flex items-center justify-center mr-5 shrink-0">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1 text-lg">WhatsApp / WeChat</h4>
+                                <p class="text-orange-100/70 text-sm">+86 138 0000 0000 (24/7 在线响应)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧表单区 (外贸最重要的转化部分) -->
+                <div class="lg:w-7/12">
+                    <div class="bg-white rounded-xl p-8 md:p-10 shadow-2xl text-gray-800">
+                        <h3 class="text-2xl font-bold mb-6 text-primary border-b pb-4">发送您的采购需求 (Send Inquiry)</h3>
+                        <form onsubmit="event.preventDefault(); alert('询盘发送成功！这只是一个静态演示。');">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">姓名 (Name) *</label>
+                                    <input type="text" required class="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/50 transition bg-gray-50" placeholder="Your Name">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">公司邮箱 (Business Email) *</label>
+                                    <input type="email" required class="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/50 transition bg-gray-50" placeholder="name@company.com">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">WhatsApp/电话 (可选)</label>
+                                    <input type="text" class="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/50 transition bg-gray-50" placeholder="+1 234 567 8900">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2">感兴趣的品类</label>
+                                    <select class="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/50 transition bg-gray-50 text-gray-700">
+                                        <option>客厅家具 (沙发/茶几/电视柜)</option>
+                                        <option>餐厅家具 (餐桌/餐椅/餐边柜)</option>
+                                        <option>卧室家具 (床/床头柜/衣柜)</option>
+                                        <option>户外家具 / 藤编家具</option>
+                                        <option>工程/酒店家具定制 (Project)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-sm font-bold text-gray-700 mb-2">采购详情及留言 (Message) *</label>
+                                <textarea required rows="4" class="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/50 transition bg-gray-50" placeholder="请告知我们您的具体需求，例如：采购数量(MOQ)、所需材质、是否需要定制尺寸或OEM贴牌服务..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-secondary text-white font-bold text-lg py-4 rounded-md hover:bg-yellow-600 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
+                                立即发送询盘 (Submit Inquiry)
+                            </button>
+                            <p class="text-xs text-gray-400 text-center mt-4">
+                                <i class="fa-solid fa-shield-halved mr-1"></i> 我们承诺严格保密您的商业信息，并在 12 小时内回复。
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 (Footer) -->
+    <footer class="bg-stone-900 text-stone-300 py-16 border-t border-stone-800">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            <!-- 品牌介绍 -->
+            <div>
+                <a href="#" class="text-2xl font-bold text-white flex items-center mb-6">
+                    <i class="fa-solid fa-couch mr-2 text-secondary"></i> SunHopeLiving
+                </a>
+                <p class="text-sm text-stone-400 mb-6 leading-relaxed">
+                    深耕中国家具制造中心，为您提供从设计、打样、大货生产到全球物流配送的家具外贸供应链一站式解决方案。
+                </p>
+                <div class="flex space-x-3">
+                    <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-secondary hover:text-white transition duration-300"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-secondary hover:text-white transition duration-300"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-secondary hover:text-white transition duration-300"><i class="fa-brands fa-pinterest-p"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center hover:bg-secondary hover:text-white transition duration-300"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <!-- 快速链接 -->
+            <div>
+                <h4 class="text-white font-bold mb-6 text-lg">产品品类</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#" class="hover:text-secondary transition flex items-center"><i class="fa-solid fa-angle-right text-xs mr-2 text-stone-600"></i> 客厅系列 (Living Room)</a></li>
+                    <li><a href="#" class="hover:text-secondary transition flex items-center"><i class="fa-solid fa-angle-right text-xs mr-2 text-stone-600"></i> 餐厅系列 (Dining Room)</a></li>
+                    <li><a href="#" class="hover:text-secondary transition flex items-center"><i class="fa-solid fa-angle-right text-xs mr-2 text-stone-600"></i> 卧室系列 (Bedroom)</a></li>
+                    <li><a href="#" class="hover:text-secondary transition flex items-center"><i class="fa-solid fa-angle-right text-xs mr-2 text-stone-600"></i> 户外家具 (Outdoor)</a></li>
+                    <li><a href="#" class="hover:text-secondary transition flex items-center"><i class="fa-solid fa-angle-right text-xs mr-2 text-stone-600"></i> 下载完整电子画册 (E-Catalog)</a></li>
+                </ul>
+            </div>
+            
+            <!-- 客户支持 -->
+            <div>
+                <h4 class="text-white font-bold mb-6 text-lg">商业支持</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#" class="hover:text-secondary transition flex items-center"><i class="fa-solid fa-angle-right text-xs mr-2 text-stone-600"></i> OEM/ODM 定制流程</a></li>
+                    <li><a href="#" class="hover:text-secondary transition flex items-center"><i class="fa-solid fa-angle-right text-xs mr-2 text-stone-600"></i> 集装箱装箱计算器</a></li>
+                    <li><a href="#" class="hover:text-secondary transition flex items-center"><i class="fa-solid fa-angle-right text-xs mr-2 text-stone-600"></i> 材料及皮样色卡申领</a></li>
+                    <li><a href="#" class="hover:text-secondary transition flex items-center"><i class="fa-solid fa-angle-right text-xs mr-2 text-stone-600"></i> 常见问题解答 (FAQ)</a></li>
+                    <li><a href="#" class="hover:text-secondary transition flex items-center"><i class="fa-solid fa-angle-right text-xs mr-2 text-stone-600"></i> 售后理赔政策</a></li>
+                </ul>
+            </div>
+            
+            <!-- 订阅邮件 (外贸常用的获取潜在客户方式) -->
+            <div>
+                <h4 class="text-white font-bold mb-6 text-lg">订阅当季新品</h4>
+                <p class="text-sm text-stone-400 mb-4 leading-relaxed">
+                    留下您的邮箱，每月获取我们最新的家具设计趋势和内部批发折扣信息。
+                </p>
+                <form class="flex mt-2" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="输入您的邮箱" class="bg-stone-800 text-white px-4 py-3 w-full rounded-l-md focus:outline-none focus:ring-1 focus:ring-secondary border-none placeholder-stone-500">
+                    <button type="submit" class="bg-secondary hover:bg-yellow-600 px-5 py-3 rounded-r-md transition text-white">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="container mx-auto px-4 mt-16 pt-8 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center text-sm text-stone-500">
+            <p>&copy; 2026 SunHopeLiving Furniture Manufacturing Co., Ltd. All Rights Reserved.</p>
+            <div class="flex space-x-4 mt-4 md:mt-0">
+                <a href="#" class="hover:text-stone-300">Privacy Policy</a>
+                <a href="#" class="hover:text-stone-300">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 简单的 JavaScript 处理移动端菜单切换 -->
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        });
+
+        // 点击移动端菜单项后自动收起
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
